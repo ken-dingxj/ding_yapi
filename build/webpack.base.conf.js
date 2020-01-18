@@ -3,11 +3,12 @@
  * @Description: webpack基础配置
  * @Author: dingxuejin
  * @Date: 2020-01-02 09:39:04
- * @LastEditTime : 2020-01-18 09:37:55
+ * @LastEditTime : 2020-01-18 11:25:16
  * @LastEditors  : dingxuejin
  */
 const path = require('path');
 const config = require('../config')
+const utils = require('./utils')
 
 module.exports={
       context: path.resolve(__dirname, '../client'),
@@ -41,7 +42,7 @@ module.exports={
             loader: 'url-loader',
             options: {
               limit: 10000,
-              // name: utils.assetsPath('img/[name].[hash:7].[ext]')
+              name: utils.assetsPath('img/[name].[hash:7].[ext]')
             }
           },
           //解析音频文件
@@ -50,7 +51,7 @@ module.exports={
             loader: 'url-loader',
             options: {
               limit: 10000,
-              // name: utils.assetsPath('media/[name].[hash:7].[ext]')
+              name: utils.assetsPath('media/[name].[hash:7].[ext]')
             }
           },
           //解析字体文件
@@ -59,7 +60,7 @@ module.exports={
             loader: 'url-loader',
             options: {
               limit: 10000,
-              // name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+              name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
             }
           }
         ]

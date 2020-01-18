@@ -2,13 +2,23 @@
  * @Description: weipack工具类
  * @Author: dingxuejin
  * @Date: 2020-01-13 22:52:34
- * @LastEditTime : 2020-01-15 10:08:18
+ * @LastEditTime : 2020-01-18 11:23:58
  * @LastEditors  : dingxuejin
  */
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const devMode = process.env.NODE_ENV !== 'production'
 const path = require('path')
 const config = require('../config')
+
+const devMode = process.env.NODE_ENV !== 'production'
+
+exports.assetsPath = function (_path) {
+  const assetsSubDirectory = process.env.NODE_ENV === 'production'
+    ? config.build.assetsSubDirectory
+    : config.dev.assetsSubDirectory
+
+  return path.posix.join(assetsSubDirectory, _path)
+}
+
 exports.cssLoaders = function (options) {
   options = options || {};
 
