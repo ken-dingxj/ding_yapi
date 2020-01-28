@@ -7,7 +7,8 @@
     "build": "node build/build.js",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "commit": "commit",
-    "test": "jest"
+    "test": "jest",
+    "change":"conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "chalk": "^3.0.0",
+    "conventional-changelog-cli": "^2.0.31",
     "css-loader": "^3.4.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
