@@ -8,7 +8,11 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "commit": "commit",
     "test": "jest",
-    "change": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "postversion": "git push origin --tags && git push",
+    "patch": "npm version patch",
+    "minor": "npm version minor",
+    "major": "npm version major"
   },
   "repository": {
     "type": "git",
@@ -30,6 +34,11 @@
     "@commitlint/config-conventional": "^8.3.4",
     "@commitlint/prompt-cli": "^8.3.5",
     "@commitlint/travis-cli": "^8.3.5",
+    "babel-eslint": "^7.2.3",
+    "eslint": "^3.19.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-react": "^7.1.0",
     "autoprefixer": "^9.7.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
