@@ -8,8 +8,7 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "commit": "commit",
     "test": "jest",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
-    "postversion": "git push origin --tags && git push",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "patch": "npm version patch",
     "minor": "npm version minor",
     "major": "npm version major"
