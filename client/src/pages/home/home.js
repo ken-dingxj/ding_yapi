@@ -1,9 +1,12 @@
 import React from 'react';
+import './home.scss'
 
 class Home extends React.PureComponent{
     render(){
         return(
-          <div>欢迎页</div>
+          <div className="home-main">
+            
+          </div>
         )
     }
 }

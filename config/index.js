@@ -16,7 +16,7 @@ module.exports={
         devtool: 'cheap-module-eval-source-map',
         cacheBusting: true,
         cssSourceMap: true,
-        poll: false,
+        poll: false
     },
     build:{
         index: path.resolve(__dirname, '../dist/index.html'),
@@ -25,6 +25,6 @@ module.exports={
         devtool: '#source-map',
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
-        assetsRoot:path.resolve(__dirname, '../client/dist'),
+        assetsRoot:path.resolve(__dirname, '../client/dist')
     }
 }

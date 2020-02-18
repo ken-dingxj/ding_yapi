@@ -2,8 +2,8 @@
  * @Description: webpack开发配置
  * @Author: dingxuejin
  * @Date: 2020-01-13 22:40:23
- * @LastEditTime : 2020-01-14 16:00:00
- * @LastEditors  : dingxuejin
+ * @LastEditTime: 2020-02-17 23:08:19
+ * @LastEditors: dingxuejin
  */
 const webpack = require('webpack')
 const merge=require('webpack-merge');
@@ -38,7 +38,7 @@ const devWebpackConfig=merge(baseWebpackConfig,{
         publicPath:config.dev.assetsPublicPath,
         quiet: true,
         watchOptions: {
-            poll: config.dev.poll,
+            poll: config.dev.poll
         }
     },
     plugins: [
@@ -65,8 +65,8 @@ module.exports=new Promise((resolve,reject)=>{
         // Add FriendlyErrorsPlugin
         devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
           compilationSuccessInfo: {
-            messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`],
-          },
+            messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`]
+         },
           onErrors: config.dev.notifyOnErrors
           ? utils.createNotifierCallback()
           : undefined
