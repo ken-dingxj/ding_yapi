@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: dingxuejin
  * @Date: 2020-02-27 23:08:01
- * @LastEditTime: 2020-03-07 10:05:07
+ * @LastEditTime: 2020-03-13 22:21:44
  * @LastEditors: dingxuejin
  */
 const config={
@@ -10,7 +10,7 @@ const config={
     "adminAccount": "admin@admin.com",
     "db": {
       "servername": "127.0.0.1",
-      "DATABASE": "test",
+      "DATABASE": "yapi",
       "port": 27017,
       "user": "ding",
       "pass": "adminadmin"

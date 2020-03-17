@@ -2,7 +2,7 @@
  * @Description: webpack开发配置
  * @Author: dingxuejin
  * @Date: 2020-01-13 22:40:23
- * @LastEditTime: 2020-02-17 23:08:19
+ * @LastEditTime: 2020-03-14 01:30:12
  * @LastEditors: dingxuejin
  */
 const webpack = require('webpack')
@@ -18,7 +18,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
-
 const devWebpackConfig=merge(baseWebpackConfig,{
     module:{
         rules:utils.styleLoaders({ sourceMap: true, usePostCSS: false })
@@ -33,6 +32,7 @@ const devWebpackConfig=merge(baseWebpackConfig,{
         open: config.dev.autoOpenBrowser,
         host: HOST || config.dev.host,
         port: PORT || config.dev.port,
+        proxy:config.dev.proxyTable,
         compress: true,
         overlay:config.dev.errorOverlay?{warnings: false, errors: true}:false,
         publicPath:config.dev.assetsPublicPath,

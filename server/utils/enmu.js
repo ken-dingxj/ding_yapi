@@ -1,0 +1,27 @@
+module.exports={
+    success:{
+        code:10000,
+        msg:"成功",
+        success:true
+    },
+    emailIsNotNull:{
+        code:10001,
+        msg:"email不能为空",
+        success:false
+    },
+    passwordIsNotNull:{
+        code:10002,
+        msg:"密码不能为空",
+        success:false
+    },
+    userIsNotExit:{
+        code:10003,
+        msg:"该用户不存在",
+        success:false
+    },
+    passwordErr:{
+        code:10004,
+        msg:"密码错误",
+        success:false
+    }
+}

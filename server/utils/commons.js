@@ -91,3 +91,19 @@ exports.randStr = () => {
     .toString(36)
     .substr(2);
 };
+
+exports.resReturn = (data,option,customMsg) => {
+  let code = option.code || -10000;
+  customMsg = customMsg || "";
+  return {
+    code: code,
+    msg: customMsg+option.msg,
+    data: data,
+    success:option.success
+  };
+};
+exports.expireDate = day => {
+  let date = new Date();
+  date.setTime(date.getTime() + day * 86400000);
+  return date;
+};

@@ -2,10 +2,11 @@
  * @Description: 
  * @Author: dingxuejin
  * @Date: 2020-03-03 01:49:07
- * @LastEditTime: 2020-03-09 10:52:48
+ * @LastEditTime: 2020-03-13 23:43:20
  * @LastEditors: dingxuejin
  */
 const baseModel = require('./base.js');
+
 
 class userModel extends baseModel {
     getName() {
