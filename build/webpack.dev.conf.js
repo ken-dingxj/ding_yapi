@@ -2,8 +2,8 @@
  * @Description: webpack开发配置
  * @Author: dingxuejin
  * @Date: 2020-01-13 22:40:23
- * @LastEditTime : 2020-01-14 16:00:00
- * @LastEditors  : dingxuejin
+ * @LastEditTime: 2020-03-14 01:30:12
+ * @LastEditors: dingxuejin
  */
 const webpack = require('webpack')
 const merge=require('webpack-merge');
@@ -18,7 +18,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
-
 const devWebpackConfig=merge(baseWebpackConfig,{
     module:{
         rules:utils.styleLoaders({ sourceMap: true, usePostCSS: false })
@@ -33,12 +32,13 @@ const devWebpackConfig=merge(baseWebpackConfig,{
         open: config.dev.autoOpenBrowser,
         host: HOST || config.dev.host,
         port: PORT || config.dev.port,
+        proxy:config.dev.proxyTable,
         compress: true,
         overlay:config.dev.errorOverlay?{warnings: false, errors: true}:false,
         publicPath:config.dev.assetsPublicPath,
         quiet: true,
         watchOptions: {
-            poll: config.dev.poll,
+            poll: config.dev.poll
         }
     },
     plugins: [
@@ -65,8 +65,8 @@ module.exports=new Promise((resolve,reject)=>{
         // Add FriendlyErrorsPlugin
         devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
           compilationSuccessInfo: {
-            messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`],
-          },
+            messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`]
+         },
           onErrors: config.dev.notifyOnErrors
           ? utils.createNotifierCallback()
           : undefined

@@ -2,12 +2,13 @@
  * @Description: weipack工具类
  * @Author: dingxuejin
  * @Date: 2020-01-13 22:52:34
- * @LastEditTime : 2020-01-18 11:23:58
- * @LastEditors  : dingxuejin
+ * @LastEditTime: 2020-02-17 23:01:43
+ * @LastEditors: dingxuejin
  */
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const path = require('path')
 const config = require('../config')
+const packageConfig = require('../package.json')
 
 const devMode = process.env.NODE_ENV !== 'production'
 
@@ -35,8 +36,8 @@ exports.cssLoaders = function (options) {
     }
   }
   const styleLoader = {
-    loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-  }
+    loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader
+ }
   function generateLoaders(loader, loaderOptions) {
     const loaders = options.usePostCSS ? [styleLoader, cssLoader, postcssLoader] : [styleLoader, cssLoader]
     if (loader) {
