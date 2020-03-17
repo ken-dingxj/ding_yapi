@@ -2,31 +2,18 @@
  * @Description:
  * @Author: dingxuejin
  * @Date: 2020-01-02 13:15:53
- * @LastEditTime: 2020-03-14 00:45:19
+ * @LastEditTime: 2020-03-17 15:43:30
  * @LastEditors: dingxuejin
  */
-import React from "react";
+import React,{Suspense} from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
-import Home from "@/pages/home/home";
-import Login from "@/pages/login/login";
-import Footer from "@/components/footer/footer";
+import AppRoute from "@/router/routes";
 import { requireAuthentication } from "@/components/authenticatedComponent/authenticatedComponent";
-
-//方案一
-let AppRoute = {
-  home: {
-    path: "/",
-    component: Home
-  },
-  login: {
-    path: "/login",
-    component: Login
-  }
-};
 class App extends React.PureComponent {
   route(){
     let r;
     r = (
+      <Suspense fallback={<div>Loading</div>}>
       <Router getUserConfirmation={this.showConfirm}>
         {Object.keys(AppRoute).map(key => {
           let item = AppRoute[key];
@@ -48,6 +35,7 @@ class App extends React.PureComponent {
           );
         })}
       </Router>
+      </Suspense>
     );
     return r;
   }
