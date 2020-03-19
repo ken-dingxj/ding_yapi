@@ -3,5 +3,21 @@
 .footer-wrapper{
     height: 2.4rem;
     width: 100%;
-    background-color: $color-bg-dark;
+    background-color: #32363a;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    flex-direction: row;
+    color:#fff;
+    .ant-col{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: .16rem;
+        span{
+            margin-right: .2rem;
+        }
+    }
 }
