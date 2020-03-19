@@ -3,8 +3,8 @@
  * @Description: webpack基础配置
  * @Author: dingxuejin
  * @Date: 2020-01-02 09:39:04
- * @LastEditTime : 2020-01-18 11:25:16
- * @LastEditors  : dingxuejin
+ * @LastEditTime: 2020-03-19 17:30:33
+ * @LastEditors: dingxuejin
  */
 const path = require('path');
 const config = require('../config')
