@@ -42,7 +42,7 @@
     "chalk": "^3.0.0",
     "conventional-changelog-cli": "^2.0.31",
     "css-loader": "^3.4.0",
-    "eslint": "^3.19.0",
+    "eslint": "^4.19.1",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-react": "^7.1.0",
