@@ -2,19 +2,22 @@
  * @Description:
  * @Author: dingxuejin
  * @Date: 2020-01-02 13:15:53
- * @LastEditTime: 2020-03-17 15:43:30
+ * @LastEditTime: 2020-03-20 00:16:00
  * @LastEditors: dingxuejin
  */
 import React,{Suspense} from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import AppRoute from "@/router/routes";
 import { requireAuthentication } from "@/components/authenticatedComponent/authenticatedComponent";
+import { lazy } from "react";
+import Loading from "@/components/loading/loading";
+
 class App extends React.PureComponent {
   route(){
     let r;
     r = (
-      <Suspense fallback={<div>Loading</div>}>
       <Router getUserConfirmation={this.showConfirm}>
+        <Suspense fallback={<Loading/>}>
         {Object.keys(AppRoute).map(key => {
           let item = AppRoute[key];
           return key === "login" ? (
@@ -34,8 +37,8 @@ class App extends React.PureComponent {
             />
           );
         })}
+         </Suspense>
       </Router>
-      </Suspense>
     );
     return r;
   }
