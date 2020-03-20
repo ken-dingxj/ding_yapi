@@ -4,6 +4,7 @@
   "description": "仿yai项目",
   "main": "app.js",
   "scripts": {
+    "server":"nodemon server/app.js",
     "build": "node build/build.js",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "commit": "commit",
