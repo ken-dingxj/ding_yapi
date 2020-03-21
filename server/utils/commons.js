@@ -1,6 +1,7 @@
 const path = require("path");
 const yapi = require("../yapi.js");
 const sha1 = require("sha1");
+const enmu = require("../utils/enmu");
 
 exports.resReturn = (data, num, errmsg) => {
   num = num || 0;
@@ -72,7 +73,7 @@ exports.createAction = (
       );
       await inst[action].call(inst, ctx);
     } catch (err) {
-      ctx.body = this.resReturn(null, 40011, "服务器出错...");
+      ctx.body = this.resReturn(null, enmu.systemErr);
       this.log(err, "error");
     }
   });
@@ -106,4 +107,100 @@ exports.expireDate = day => {
   let date = new Date();
   date.setTime(date.getTime() + day * 86400000);
   return date;
+};
+
+function trim(str) {
+  if (!str) {
+    return str;
+  }
+
+  str = str + '';
+
+  return str.replace(/(^\s*)|(\s*$)/g, '');
+}
+
+function ltrim(str) {
+  if (!str) {
+    return str;
+  }
+
+  str = str + '';
+
+  return str.replace(/(^\s*)/g, '');
+}
+
+function rtrim(str) {
+  if (!str) {
+    return str;
+  }
+
+  str = str + '';
+
+  return str.replace(/(\s*$)/g, '');
+}
+
+exports.trim = trim;
+exports.ltrim = ltrim;
+exports.rtrim = rtrim;
+
+/**
+ * 处理请求参数类型，String 字符串去除两边空格，Number 使用parseInt 转换为数字
+ * @params Object {a: ' ab ', b: ' 123 '}
+ * @keys Object {a: 'string', b: 'number'}
+ * @return Object {a: 'ab', b: 123}
+ */
+exports.handleParams = (params, keys) => {
+  if (!params || typeof params !== 'object' || !keys || typeof keys !== 'object') {
+    return false;
+  }
+  for (var key in keys) {
+    var filter = keys[key];
+    if (params[key]) {
+      switch (filter) {
+        case 'string':
+          params[key] = trim(params[key] + '');
+          break;
+        case 'number':
+          params[key] = !isNaN(params[key]) ? parseInt(params[key], 10) : 0;
+          break;
+        default:
+          params[key] = trim(params + '');
+      }
+    }
+  }
+  return params;
+};
+
+/**
+ * 发送邮件
+ * @param {*} options 
+ * @param {*} cb
+ */
+exports.sendMail = (options, cb) => {
+  if (!yapi.mail) return false;
+  options.subject = options.subject ? options.subject + '-DApi 平台' : 'DApi 平台';
+
+  cb = cb || function(err) {
+      if (err) {
+        yapi.commons.log('send mail ' + options.to + ' error,' + err.message, 'error');
+      } else {
+        yapi.commons.log('send mail ' + options.to + ' success');
+      }
+    };
+  try {
+    console.log();
+    
+    yapi.mail.sendMail(
+      {
+        from: yapi.WEBCONFIG.mail.from,
+        to: options.to,
+        subject: options.subject,
+        html: options.contents
+      },
+      cb
+    );
+  } catch (e) {
+    yapi.commons.log(e.message, 'error');
+    console.error(e.message); // eslint-disable-line
+  }
 };
