@@ -17,7 +17,12 @@ let routerConfig = {
       action: "login",
       path: "login",
       method: "post"
-    }
+    },
+    {
+      action: 'reg',
+      path: 'reg',
+      method: 'post'
+    },
   ]
 };
 

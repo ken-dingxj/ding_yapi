@@ -8,10 +8,26 @@ const mongoose = require("mongoose");
 yapi.commons = commons;
 yapi.connect = dbModule.connect();
 
-function install() {
-  setupSql();
+function type(val){
+  return Object.prototype.toString.call(val)
 }
-function setupSql() {
+
+function install(val) {
+  switch(type(val)){
+    case "[object Array]":
+      for(let item of val){
+        type(item)==="[object Function]"?item():""
+      }
+    break;
+    case "[object Function]":
+      val()
+      break;
+  }
+}
+/**
+ * 创建用户表,并初始化超级管理员
+ */
+function installUserTable() {
   let userInst = yapi.getInst(userModel);
   let passsalt = yapi.commons.randStr();
   let result = userInst.save({
@@ -40,6 +56,7 @@ function setupSql() {
           unique: true
         }
       );
+
       result.then(
         function() {
         //   fs.ensureFileSync(yapi.path.join(yapi.WEBROOT_RUNTIME, "init.lock"));
@@ -59,5 +76,30 @@ function setupSql() {
       throw new Error(err.message);
     });
 }
-
-install();
+/**
+ * 创建组织表
+ */
+function installGroupTable() {
+    let result=yapi.connect
+    .then(async function() {
+      let groupCol = mongoose.connection.db.collection('group');
+      let res=await  Promise.all([
+        groupCol.createIndex({
+          uid: 1
+        }),groupCol.createIndex({
+          group_name: 1
+        })
+      ])
+      return res
+    }).catch(function(err) {
+      throw new Error(err.message);
+    });
+    result.then((res)=>{
+      console.log("创建group成功");
+      process.exit(0);
+    })
+}
+//单个表创建
+install(installGroupTable);
+//多个表创建
+// install([installUserTable,installGroupTable]);
