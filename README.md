@@ -13,6 +13,7 @@ http://127.0.0.1/api/user/login
 | :----: |:----: |:----: |:----: |
 | email |Y |string |用户名称或邮箱 |
 | password |Y |string |用户密码 |
+
 **入参示例**
 ```json
 {
@@ -41,7 +42,7 @@ http://127.0.0.1/api/user/login
 #### 注册
 **url**
 ```
-http://127.0.0.1/api/user/login
+http://127.0.0.1/api/user/reg
 ```
 **请求方式：post**
 
@@ -50,6 +51,7 @@ http://127.0.0.1/api/user/login
 | email |Y |string |邮箱号 |
 | password |Y |string |用户密码 |
 | username |N |string |用户名 |
+
 **入参示例**
 ```json
 {
