@@ -39,6 +39,23 @@ http://127.0.0.1/api/user/login
         "success": true
     }   
 ```
+#### 登出
+**url**
+```
+http://127.0.0.1/api/user/logout
+```
+**请求方式：get**
+
+**出参示例**
+```json
+    {
+        "code": 10000,
+        "msg": "登出成功",
+        "data": null,
+        "success": true
+    }
+```
+
 #### 注册
 **url**
 ```

@@ -83,7 +83,7 @@ function installGroupTable() {
     let result=yapi.connect
     .then(async function() {
       let groupCol = mongoose.connection.db.collection('group');
-      let res=await  Promise.all([
+      let res=await Promise.all([
         groupCol.createIndex({
           uid: 1
         }),groupCol.createIndex({
@@ -99,7 +99,32 @@ function installGroupTable() {
       process.exit(0);
     })
 }
+/**
+ * 创建头像表
+ */
+function installAvatarTable() {
+  let result=yapi.connect
+  .then(async function() {
+    let avatarCol = mongoose.connection.db.collection('avatar');
+      
+    let res=await Promise.all([
+      avatarCol.createIndex({
+        uid: 1
+      })
+    ])
+    return res
+  }).catch(function(err) {
+    throw new Error(err.message);
+  });
+  result.then((res)=>{
+    console.log("创建avatar成功");
+    process.exit(0);
+  })
+}
+
+
 //单个表创建
-install(installGroupTable);
+// install(installGroupTable);
+install(installUserTable);
 //多个表创建
 // install([installUserTable,installGroupTable]);
