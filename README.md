@@ -13,6 +13,7 @@ http://127.0.0.1/api/user/login
 | :----: |:----: |:----: |:----: |
 | email |Y |string |用户名称或邮箱 |
 | password |Y |string |用户密码 |
+
 **入参示例**
 ```json
 {
@@ -38,10 +39,27 @@ http://127.0.0.1/api/user/login
         "success": true
     }   
 ```
+#### 登出
+**url**
+```
+http://127.0.0.1/api/user/logout
+```
+**请求方式：get**
+
+**出参示例**
+```json
+    {
+        "code": 10000,
+        "msg": "登出成功",
+        "data": null,
+        "success": true
+    }
+```
+
 #### 注册
 **url**
 ```
-http://127.0.0.1/api/user/login
+http://127.0.0.1/api/user/reg
 ```
 **请求方式：post**
 
@@ -50,6 +68,7 @@ http://127.0.0.1/api/user/login
 | email |Y |string |邮箱号 |
 | password |Y |string |用户密码 |
 | username |N |string |用户名 |
+
 **入参示例**
 ```json
 {
