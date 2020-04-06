@@ -1,5 +1,5 @@
 import React, { PureComponent as Component } from 'react';
-import { Form, Button, Input } from 'antd';
+import { Form, Button, Input, message } from 'antd';
 import './login.scss';
 import { loginAPI, registerAPI } from '../../api/user';
 
@@ -15,7 +15,12 @@ class Login extends Component {
         console.log('Success:', values);
 
         loginAPI(values).then(res => {
-            console.log(res)
+            if(res.data.success){
+                message.success(res.data.msg);
+                // 跳转逻辑
+            }else{
+                message.error(res.data.msg);
+            }
         }).catch(e => {
             console.log(e)
         })
@@ -25,10 +30,14 @@ class Login extends Component {
         console.log('Success:', values);
 
         registerAPI(values).then(res => {
-            console.log(res)
-            this.setState({
-                type: 1
-            });
+            if(res.data.success){
+                message.success(res.data.msg);
+                this.setState({
+                    type: 1
+                });
+            }else{
+                message.error(res.data.msg);
+            }
         }).catch(e => {
             console.log(e)
         })
