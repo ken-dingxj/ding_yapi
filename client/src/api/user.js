@@ -5,5 +5,9 @@ export function loginAPI(data) {
 }
 
 export function registerAPI(data) {
-    return axios.post('/api/user/login', data)
+    return axios.post('/api/user/reg', data)
+}
+
+export function logoutAPI(data) {
+    return axios.post('/api/user/logout', data)
 }
