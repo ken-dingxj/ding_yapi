@@ -2,7 +2,7 @@
  * @Description:
  * @Author: dingxuejin
  * @Date: 2020-03-06 23:41:01
- * @LastEditTime: 2020-03-21 14:49:45
+ * @LastEditTime: 2020-03-29 15:31:53
  * @LastEditors: dingxuejin
  */
 const userModel = require("../models/user.js");
@@ -98,6 +98,38 @@ class userController extends baseController {
       httpOnly: true
     });
   }
+
+  /**
+   * 退出登录接口
+   * @interface /user/logout
+   * @method GET
+   * @category user
+   * @foldnumber 10
+   * @returns {Object}
+   */
+
+  async logout(ctx) {
+    ctx.cookies.set('_yapi_token', null);
+    ctx.cookies.set('_yapi_uid', null);
+    ctx.body = yapi.commons.resReturn(null, enmu.success,"登出");
+  }
+  
+ /**
+   * ldap登录
+   * @interface /user/login_by_ldap
+   * @method
+   * @category user
+   * @foldnumber 10
+   * @param {String} email email名称，不能为空
+   * @param  {String} password 密码，不能为空
+   * @returns {Object}
+   *
+   */
+
+  async getLdapAuth(ctx) {
+    
+  }
+  
   /**
    * 用户注册接口
    * @interface /user/reg
@@ -172,6 +204,23 @@ class userController extends baseController {
       ctx.body = yapi.commons.resReturn(null, 401, e.message);
     }
     return null;
+  }
+
+  /**
+   * 根据用户uid头像
+   * @interface /user/avatar
+   * @method GET
+   * @param {*} uid
+   * @category user
+   * @returns {Object}
+   * @example
+   */
+  async avatar(ctx) {
+    try{
+      
+    }catch(err){
+      
+    }
   }
 }
 
