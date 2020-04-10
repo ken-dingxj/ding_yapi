@@ -1,7 +1,20 @@
 import React, { PureComponent as Component } from 'react';
+import { connect } from 'react-redux';
 import { Form, Button, Input, message } from 'antd';
 import './login.scss';
-import { loginAPI, registerAPI } from '../../api/user';
+import { loginActions, registerActions } from '../../reducer/modules/user';
+
+@connect(
+    state => {
+      return {
+        loginData: state.user
+      };
+    },
+    {
+      loginActions,
+      registerActions
+    }
+)
 
 class Login extends Component {
     constructor(props) {
@@ -13,34 +26,33 @@ class Login extends Component {
     
     onFinish(values) {
         console.log('Success:', values);
-
-        loginAPI(values).then(res => {
-            if(res.data.success){
-                message.success(res.data.msg);
+        this.props.loginActions(values).then(res => {
+            if (res.payload.data.success) {
+                message.success(res.payload.data.msg);
                 // 跳转逻辑
-            }else{
-                message.error(res.data.msg);
+                // this.props.history.replace('/group');
+            }else {
+                message.error(res.payload.data.msg);
             }
         }).catch(e => {
             console.log(e)
-        })
+        });
     }
 
     getStart(values) {
         console.log('Success:', values);
-
-        registerAPI(values).then(res => {
-            if(res.data.success){
-                message.success(res.data.msg);
+        this.props.registerActions(values).then(res => {
+            if (res.payload.data.success) {
+                message.success(res.payload.data.msg);
                 this.setState({
                     type: 1
                 });
-            }else{
-                message.error(res.data.msg);
+            }else {
+                message.error(res.payload.data.msg);
             }
         }).catch(e => {
             console.log(e)
-        })
+        });
     }
 
     forgetPassword() {
