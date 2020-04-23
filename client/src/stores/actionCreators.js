@@ -18,5 +18,5 @@ export const initListAction = (type , data) =>({
     data
 })
 export const getInitList = (type) =>({
-    type,
+    type
 })
