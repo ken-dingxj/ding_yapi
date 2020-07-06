@@ -9,6 +9,7 @@ import { lazy } from "react";
 
 const Home = lazy(() => import("@/pages/home/home"));
 const Login = lazy(() => import("@/pages/login/login"));
+const Layout = lazy(() => import("@/pages/layout/layout"));
 
 export default {
     home: {
@@ -18,5 +19,9 @@ export default {
     login: {
         path: "/login",
         component: Login
+    },
+    layout: {
+        path: "/index",
+        component: Layout
     }
 };
