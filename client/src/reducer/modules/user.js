@@ -3,6 +3,7 @@ import axios from 'axios';
 // Actions
 const LOGIN = 'yapi/user/LOGIN';
 const REGISTER = 'yapi/user/REGISTER';
+const LOGOUT = 'yapi/user/LOGOUT'
 
 // Reducer user
 const initialState = {
@@ -47,6 +48,24 @@ export default (state = initialState, action) => {
         return state;
       }
     }
+    case LOGOUT: {
+      if (action.payload.data.code === 10000) {
+        return {
+          ...state,
+          isLogin: false,
+          uid: null,
+          userName: '',
+          email: '',
+          role: '',
+          type: '',
+          add_time: null,
+          up_time: null,
+          study: false
+        };
+      } else {
+        return state;
+      }
+    }
     default:
       return state;
   }
@@ -64,5 +83,12 @@ export function registerActions(data) {
   return {
     type: REGISTER,
     payload: axios.post('/api/user/reg', data)
+  };
+}
+
+export function logoutActions() {
+  return {
+    type: LOGOUT,
+    payload: axios.get('/api/user/logout')
   };
 }
