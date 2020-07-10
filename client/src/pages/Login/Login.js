@@ -30,7 +30,7 @@ class Login extends Component {
             if (res.payload.data.success) {
                 message.success(res.payload.data.msg);
                 // 跳转逻辑
-                // this.props.history.replace('/group');
+                this.props.history.replace('/index');
             }else {
                 message.error(res.payload.data.msg);
             }
