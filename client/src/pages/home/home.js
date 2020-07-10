@@ -56,23 +56,23 @@ class Home extends React.PureComponent {
             <div className="role">
               <div class="section-block block-first">
                 <h4>超级管理员(* N)</h4>
-                <p class="item"> - 创建分组</p>
-                <p class="item"> - 分配组长</p>
-                <p class="item"> - 管理所有成员信息</p>
+                <p className="item"> - 创建分组</p>
+                <p className="item"> - 分配组长</p>
+                <p className="item"> - 管理所有成员信息</p>
               </div>
               <div>
                 <div class="section-block block-second">
                   <h4>组长(* N)</h4>
-                  <p class="item"> - 创建项目</p>
-                  <p class="item"> - 管理分组或项目的信息</p>
-                  <p class="item"> - 管理开发者与成员</p>
+                  <p className="item"> - 创建项目</p>
+                  <p className="item"> - 管理分组或项目的信息</p>
+                  <p className="item"> - 管理开发者与成员</p>
                 </div>
               </div>
               <div>
                 <div class="section-block block-third">
                   <h4>开发者(* N) / 成员(* N)</h4>
-                  <p class="item"> - 不允许创建分组</p>
-                  <p class="item"> - 不允许修改分组或项目信息</p>
+                  <p className="item"> - 不允许创建分组</p>
+                  <p className="item"> - 不允许修改分组或项目信息</p>
                 </div>
               </div>
             </div>
