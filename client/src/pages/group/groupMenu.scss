@@ -1,0 +1,45 @@
+.group-menu {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 100%;
+    .g-head {
+        background-color: #32363a;
+        .g-box1 {
+            padding: 24px 24px 0;
+            .m-tt {
+                color: hsla(0,0%,100%,.85);
+                font-size: 26px;
+                line-height: 35px;
+            }
+            .anticon-folder-add {
+                float: right;
+                color: hsla(0,0%,100%,.85);
+                font-size: 28px;
+                line-height: 35px;
+            }
+            .m-des {
+                color: hsla(0,0%,100%,.67);
+                font-size: 14px;
+            }
+            .m-des:nth-of-type(1) {
+                margin-top: 16px;
+            }
+        }
+        .g-box2 {
+            padding: 16px 24px;
+            input {
+                color: hsla(0,0%,100%,.85);
+                background-color: #32363a;
+                border-radius: 4px;
+            }
+        }
+    }
+    .g-list {
+        height: 100%;
+        background-color: #FFF;
+        ul li {
+            padding-left: 24px;
+        }
+    }
+}

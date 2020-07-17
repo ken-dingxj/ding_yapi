@@ -75,7 +75,7 @@ class Header extends Component {
           </Menu>
         );
         return(
-          <div className="g-head">
+          <div className="layout-head">
             <div className="g-lft">
               <div className="m-logo f-fl">
                 <Link to={'/index'}>

@@ -6,7 +6,8 @@
  * @LastEditors: dingxuejin
  */
 import React,{Suspense} from "react";
-import { Route, BrowserRouter as Router } from "react-router-dom";
+// import { Route, BrowserRouter as Router } from "react-router-dom";
+import { Route, HashRouter as Router } from "react-router-dom";
 import AppRoute from "@/router/routes";
 import { requireAuthentication } from "@/components/authenticatedComponent/authenticatedComponent";
 import { lazy } from "react";
