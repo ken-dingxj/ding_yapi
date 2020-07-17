@@ -1,0 +1,99 @@
+.group-tabs {
+    width: 100%;
+    height: 100%;
+    background-color: #FFF;
+    margin-left: 16px;
+    .ant-tabs {
+        height: 100%;
+        .ant-tabs-bar {
+            margin-bottom: 0;
+        }
+        .ant-tabs-nav-wrap {
+            background-color: #eceef1;
+        }
+        .m-pane {
+            height: 100%;
+            background-color: #FFF;
+            padding: 24px 24px 0;
+            .m-tip {
+                padding: 0 10px;
+                margin-bottom: 15px;
+                background: #eee;
+                color: rgba(39,56,72,.85);
+                height: 64px;
+                line-height: 64px;
+                border-radius: 4px;
+                font-weight: 500;
+            }
+        }
+        .m-pane1 {
+            .m-cards {
+                .m-card {
+                    height: 200px;
+                    .ant-card-body {
+                        padding: 0;
+                    }
+                    .m-star {
+                        position: absolute;
+                        right: 10px;
+                        top: 10px;
+                        .anticon-star {
+                            font-size: 16px;
+                            visibility: hidden;
+                        }
+                    }
+                    .m-icon .ant-avatar-icon {
+                        height: 100px;
+                        width: 100px;
+                        font-size: 50px;
+                        line-height: 100px;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -75%);
+                    }
+                    p {
+                        font-size: 26px;
+                        position: absolute;
+                        top: 50%;
+                        transform: translate(0, calc(-75% + 66px));
+                        width: 100%;
+                        text-align: center;
+                    }
+                }
+                .m-card:hover .anticon-star{
+                    visibility: visible;
+                }
+            }
+        }
+        .m-pane2 {
+            .m-tip {
+                margin-bottom: 0px;
+            }
+            .m-mebs {
+                .m-meb {
+                    border-bottom: 1px solid #e9e9e9;
+                    vertical-align: middle;
+                    line-height: 32px;
+                    .m-user {
+                        .ant-avatar-image {
+                            margin-right: 8px;
+                        }
+                        display: inline-block;
+                        padding: 16px 10px;
+                        color: #2395f1;
+                        cursor: pointer;
+                    }
+                    .m-user:hover {
+                        color: #636363;
+                    }
+                    .m-role {
+                        display: inline-block;
+                        padding: 16px 10px;
+                        color: rgba(13,27,62,.65);
+                    }
+                }
+            }
+        }
+    }
+}
