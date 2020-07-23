@@ -1,5 +1,6 @@
 import React from 'react';
 // import { connect } from 'react-redux';
+import Layout from "@/pages/layout/layout";
 
 export function requireAuthentication(Component){
     // return @connect(
@@ -16,7 +17,8 @@ export function requireAuthentication(Component){
         render(){
             return (
               <div style={{height: '100%'}}>
-                <Component/> 
+                {/* <Component/>  */}
+                {Layout(Component)}
               </div>
             )
         }
