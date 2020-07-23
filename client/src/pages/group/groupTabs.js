@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
     Tabs,
     Button,
@@ -154,12 +155,12 @@ class GroupTabs extends React.PureComponent {
 
         const divList = this.state.menberList.map(item => {
             return (
-                <div className="m-meb">
+                <div className="m-meb" key={item.id}>
                     <Row>
                         <Col span={16}>
                             <span className="m-user">
                                 <Avatar shape="square" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                                {item.username}
+                                <Link to={`/user/${item.id}`}>{item.username}</Link>
                             </span>
                         </Col>
                         <Col span={8} style={{textAlign: "right"}}>

@@ -9,7 +9,8 @@ import { lazy } from "react";
 
 const Home = lazy(() => import("@/pages/home/home"));
 const Login = lazy(() => import("@/pages/login/login"));
-const Layout = lazy(() => import("@/pages/layout/layout"));
+const Group = lazy(() => import("@/pages/group/group"));
+const User = lazy(() => import("@/pages/user/user"));
 
 export default {
     home: {
@@ -20,8 +21,12 @@ export default {
         path: "/login",
         component: Login
     },
-    layout: {
-        path: "/index",
-        component: Layout
+    group: {
+        path: "/group",
+        component: Group
+    },
+    user: {
+        path: "/user/:id",
+        component: User
     }
 };
