@@ -1,5 +1,6 @@
 import React from 'react';
 // import { connect } from 'react-redux';
+import Layout from "@/pages/layout/layout";
 
 export function requireAuthentication(Component){
     // return @connect(
@@ -15,8 +16,9 @@ export function requireAuthentication(Component){
     return class AuthenticatedComponent extends React.PureComponent {
         render(){
             return (
-              <div>
-                <Component/> 
+              <div style={{height: '100%'}}>
+                {/* <Component/>  */}
+                {Layout(Component)}
               </div>
             )
         }

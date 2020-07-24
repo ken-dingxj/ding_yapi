@@ -51,7 +51,7 @@ class Header extends Component {
 
     onMenuClick({ key }) {
       if (key === '1'){
-        
+        this.props.history.push(`/user/${this.props.loginData.uid}`)
       } else if (key === '2') {
         this.props.logoutActions().then(res => {
           if (res.payload.data.success) {
@@ -75,10 +75,10 @@ class Header extends Component {
           </Menu>
         );
         return(
-          <div className="g-head">
+          <div className="layout-head">
             <div className="g-lft">
               <div className="m-logo f-fl">
-                <Link to={'/index'}>
+                <Link to={'/group'}>
                   <HomeOutlined />
                 </Link>
               </div>

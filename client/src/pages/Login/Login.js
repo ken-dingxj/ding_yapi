@@ -30,7 +30,7 @@ class Login extends Component {
             if (res.payload.data.success) {
                 message.success(res.payload.data.msg);
                 // 跳转逻辑
-                this.props.history.replace('/index');
+                this.props.history.replace('/group');
             }else {
                 message.error(res.payload.data.msg);
             }
@@ -175,7 +175,7 @@ class Login extends Component {
                             />
                         </Form.Item>
                         <Form.Item>
-                            <Button type="primary" htmlType="submit" className="register-form-submitBtn submit-btn">即可开始</Button>
+                            <Button type="primary" htmlType="submit" className="register-form-submitBtn submit-btn">即刻开始</Button>
                         </Form.Item>
                         <Form.Item>
                             <Button type="link" className="register-form-loginBtn text-btn" onClick={() => this.login()}>账号密码登录</Button>
