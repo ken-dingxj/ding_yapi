@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { 
     Tabs,
     Button,
@@ -16,6 +17,8 @@ import './groupTabs.scss';
 
 // const { TabPane } = Tabs;
 const TabPane = Tabs.TabPane;
+
+@withRouter
 
 class GroupTabs extends React.PureComponent {
     constructor(props) {
@@ -104,7 +107,7 @@ class GroupTabs extends React.PureComponent {
     }
 
     addProject(e) {
-        console.log(e)
+        this.props.history.push('/add-project');
     }
 
     handlerCollect(e, id) {
