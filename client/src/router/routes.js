@@ -11,6 +11,7 @@ const Home = lazy(() => import("@/pages/home/home"));
 const Login = lazy(() => import("@/pages/login/login"));
 const Group = lazy(() => import("@/pages/group/group"));
 const User = lazy(() => import("@/pages/user/user"));
+const AddProject = lazy(() => import("@/pages/addProject/addProject"));
 
 export default {
     home: {
@@ -28,5 +29,9 @@ export default {
     user: {
         path: "/user/:id",
         component: User
+    },
+    addProject: {
+        path: "/add-project",
+        component: AddProject
     }
 };
