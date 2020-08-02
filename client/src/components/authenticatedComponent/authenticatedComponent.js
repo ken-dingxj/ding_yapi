@@ -17,7 +17,6 @@ export function requireAuthentication(Component){
         render(){
             return (
               <div style={{height: '100%'}}>
-                {/* <Component/>  */}
                 {Layout(Component)}
               </div>
             )

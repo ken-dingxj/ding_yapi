@@ -67,6 +67,10 @@ class Header extends Component {
       }
     }
 
+    toAddProject() {
+      this.props.history.push('/add-project');
+    }
+
     render(){
         const menu = (
           <Menu onClick={(value) => this.onMenuClick(value)}>
@@ -97,7 +101,7 @@ class Header extends Component {
               </div>
               <div className="m-icon f-fr">
                 <StarOutlined />
-                <PlusCircleOutlined />
+                <PlusCircleOutlined onClick={() => this.toAddProject()}/>
                 <a target="_blank" href="https://hellosean1025.github.io/yapi/">
                   <QuestionCircleOutlined />
                 </a>
